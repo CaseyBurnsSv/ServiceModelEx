@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20826</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0858C710-AF53-4049-B98E-CFE3638D1228}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceModelEx</RootNamespace>
+    <AssemblyName>ServiceModelEx</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\ServiceModelEx.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/ServiceModelEx/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Design|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Design\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ServiceBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Windows Azure platform AppFabric SDK\V1.0\Assemblies\NET4.0\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.WorkflowServices">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bindings\BindingRequirementAttribute.cs" />
+    <Compile Include="Bindings\NetNamedPipeContextBinding.cs" />
+    <Compile Include="Context\HeaderChannelFactory.cs" />
+    <Compile Include="Tuple.cs" />
+    <Compile Include="GenericInterceptor\InterceptorChannelFactory.cs" />
+    <Compile Include="CustomSyncContext\Affinity\HostThreadAffinity.cs" />
+    <Compile Include="Durability\Per Instance Storage\TransactionalInstanceProviderFactory.cs" />
+    <Compile Include="Durability\Per Instance Storage\TransactionalInstanceProvider.cs" />
+    <Compile Include="Durability\MemoryProvider.cs" />
+    <Compile Include="Durability\MemoryProviderFactory.cs" />
+    <Compile Include="Durability\Per Instance Storage\TransactionalInstanceStore.cs" />
+    <Compile Include="Durability\Shared Memory Storage\TransactionalMemoryStore.cs" />
+    <Compile Include="Durability\File\FilePersistenceProvider.cs" />
+    <Compile Include="Durability\File\FilePersistenceProviderFactory.cs" />
+    <Compile Include="Context\ContextManager.cs" />
+    <Compile Include="Context\ContextClientBase.cs" />
+    <Compile Include="CustomSyncContext\Priority\PriorityProxy.cs" />
+    <Compile Include="CustomSyncContext\Priority\PriorityCallsBehaviorAttribute.cs" />
+    <Compile Include="CustomSyncContext\Priority\PriorityContext.cs" />
+    <Compile Include="CustomSyncContext\Priority\PrioritySynchronizer.cs" />
+    <Compile Include="Duplex\DuplexChannelFactory.cs" />
+    <Compile Include="Errors\Logbook\ILogbookManagerService.cs" />
+    <Compile Include="Errors\Logbook\LogbookEntryService.cs" />
+    <Compile Include="Errors\Logbook\LogbookManager.cs" />
+    <Compile Include="GenericInterceptor\InterceptorClientBase.cs" />
+    <Compile Include="Hosting\WcfWrapper.cs" />
+    <Compile Include="AsyncOneWayClientBase.cs" />
+    <Compile Include="Queueing\ServiceResponseBase.cs" />
+    <Compile Include="ServiceBus\Router Emulation\Routers.cs" />
+    <Compile Include="ServiceBus\Router Emulation\ServiceBusNode - Routers.cs" />
+    <Compile Include="ServiceBus\Hosts\DiscoverableServiceHost.cs" />
+    <Compile Include="ServiceBus\Hosts\BufferedServiceBusHost.cs" />
+    <Compile Include="ServiceBus\Hosts\ServiceBusEventsHost.cs" />
+    <Compile Include="ServiceBus\Hosts\ServiceBusHost.cs" />
+    <Compile Include="ServiceBus\IServiceBusProperties.cs" />
+    <Compile Include="ServiceBus\Proxies\ServiceBusDuplexProxy.cs" />
+    <Compile Include="ServiceBus\ServiceBusMetadataHelper.cs" />
+    <Compile Include="ServiceBus\Proxies\BufferedServiceBusChannelFactory.cs" />
+    <Compile Include="ServiceBus\Proxies\BufferedServiceBusClient.cs" />
+    <Compile Include="ServiceBus\Proxies\ClientBufferResponseBase.cs" />
+    <Compile Include="ServiceBus\Proxies\ServiceBusEventsClientBase.cs" />
+    <Compile Include="ServiceBus\Proxies\OneWayProxy.cs" />
+    <Compile Include="ServiceBus\Proxies\ServiceBufferResponseBase.cs" />
+    <Compile Include="ServiceBus\Proxies\ServiceBusProxy.cs" />
+    <Compile Include="ServiceBus\ServiceBusHelper - Buffer.cs" />
+    <Compile Include="ServiceBus\ServiceBusHelper - Configuration.cs" />
+    <Compile Include="ServiceBus\ServiceBusHelper - Security.cs" />
+    <Compile Include="Transactions\TransactionalBehaviorAttribute.cs" />
+    <Compile Include="Durability\Shared Memory Storage\TransactionalMemoryProvider.cs" />
+    <Compile Include="Durability\Shared Memory Storage\TransactionalMemoryProviderFactory.cs" />
+    <Compile Include="Errors\DebugHelper.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="GenericInterceptor\ServiceInterceptorBehaviorAttribute.cs" />
+    <Compile Include="GenericInterceptor\OperationInterceptorBehaviorAttribute.cs" />
+    <Compile Include="GenericInterceptor\GenericInvoker.cs" />
+    <Compile Include="Durability\File\FileInstanceStore.cs" />
+    <Compile Include="Durability\IInstanceStore.cs" />
+    <Compile Include="Hosting\ServiceThrottleHelper.cs" />
+    <Compile Include="MetadataHelper.cs" />
+    <Compile Include="Data\GenericDataContractSerializer.cs" />
+    <Compile Include="Context\GenericContext.cs" />
+    <Compile Include="Context\HeaderClientBase.cs" />
+    <Compile Include="PublishSubscribe\PersistentSubscriptionServiceProxy.cs" />
+    <Compile Include="Queueing\ClientResponseBase.cs" />
+    <Compile Include="Queueing\ResponseContext.cs" />
+    <Compile Include="Queueing\QueuedServiceHelper.cs" />
+    <Compile Include="Security\Declarative Security\SecureDuplexClientBase.cs" />
+    <Compile Include="Security\Identity Stack\SecurityCallFrame.cs" />
+    <Compile Include="Security\Identity Stack\SecurityCallStack.cs" />
+    <Compile Include="Security\Identity Stack\SecurityCallStackClientBase.cs" />
+    <Compile Include="Security\Identity Stack\SecurityCallStackContext.cs" />
+    <Compile Include="Security\Identity Stack\SecurityCallStackInterceptor.cs" />
+    <Compile Include="Security\Declarative Security\ServiceSecurity.cs" />
+    <Compile Include="Security\Declarative Security\SecureClientBase.cs" />
+    <Compile Include="Security\Declarative Security\SecurityHelper.cs" />
+    <Compile Include="Security\Declarative Security\SecurityBehaviorAttribute.cs" />
+    <Compile Include="Security\Declarative Security\SecurityBehavior.cs" />
+    <Compile Include="CustomSyncContext\Affinity\AffinitySynchronizer.cs" />
+    <Compile Include="Errors\CallbackErrorHandlerAttribute.cs" />
+    <Compile Include="Errors\ErrorHandlerAttribute.cs" />
+    <Compile Include="Extensions\Collection.cs" />
+    <Compile Include="Data\DataTableHelper.cs" />
+    <Compile Include="Errors\ErrorHandlerHelper.cs" />
+    <Compile Include="Errors\Logbook\LogbookEntryClient.cs" />
+    <Compile Include="Errors\Logbook\LogbookManagerProxy.cs" />
+    <Compile Include="Hosting\ServiceHost.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PublishSubscribe\PublishService.cs" />
+    <Compile Include="PublishSubscribe\PublishSubscribeDataSet.Designer.cs" />
+    <Compile Include="PublishSubscribe\PubSubContracts.cs" />
+    <Compile Include="PublishSubscribe\SubscriptionManager.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="Duplex\DuplexClientBase.cs" />
+    <Compile Include="Hosting\InProcFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Duplex\InstanceContext.cs" />
+    <Compile Include="CustomSyncContext\Affinity\CallbackThreadAffinityBehaviorAttribute.cs" />
+    <Compile Include="CustomSyncContext\CallbackThreadPoolBehaviorAttribute.cs" />
+    <Compile Include="CustomSyncContext\WorkItem.cs" />
+    <Compile Include="CustomSyncContext\Affinity\ThreadAffinityBehaviorAttribute.cs" />
+    <Compile Include="CustomSyncContext\ThreadPoolBehaviorAttribute.cs" />
+    <Compile Include="CustomSyncContext\ThreadPoolHelper.cs" />
+    <Compile Include="CustomSyncContext\ThreadPoolSynchronizer.cs" />
+    <Compile Include="Transactions\VRMs\ResourceManager.cs" />
+    <Compile Include="Transactions\VRMs\Transactional.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalArray.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalCollection.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalDictionary.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalLinkedList.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalList.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalLock.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalQueue.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalSortedDictionary.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalSortedList.cs" />
+    <Compile Include="Transactions\VRMs\TransactionalStack.cs" />
+    <Compile Include="Errors\Logbook\WCFLogbookDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCFLogbookDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Windows Forms\ActivationMonitor.cs" />
+    <Compile Include="Windows Forms\AppSingleton.cs" />
+    <Compile Include="Windows Forms\FormHost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows Forms\Safe Controls\SafeTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PublishSubscribe\PublishSubscribeDataSet.xsc">
+      <DependentUpon>PublishSubscribeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PublishSubscribe\PublishSubscribeDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PublishSubscribe\PublishSubscribeDataSet.xss">
+      <DependentUpon>PublishSubscribeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\ServiceModelEx.snk" />
+    <None Include="Errors\Logbook\WCFLogbookDataSet.xsc">
+      <DependentUpon>WCFLogbookDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Errors\Logbook\WCFLogbookDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WCFLogbookDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Errors\Logbook\WCFLogbookDataSet.xss">
+      <DependentUpon>WCFLogbookDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows Forms\Safe Controls\SafeButton.resx">
+      <DependentUpon>SafeButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows Forms\Safe Controls\SafeListBox.resx">
+      <DependentUpon>SafeListBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows Forms\Safe Controls\SafeProgressBar.resx">
+      <DependentUpon>SafeProgressBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows Forms\Safe Controls\SafeStatusBar.resx">
+      <DependentUpon>SafeStatusBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows Forms\Safe Controls\SafeTextBox.resx">
+      <DependentUpon>SafeTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows Forms\Safe Controls\SafeTrackBar.resx">
+      <DependentUpon>SafeTrackBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Windows Forms\Safe Controls\SafeButton.bmp" />
+    <Content Include="Windows Forms\Safe Controls\SafeLabel.bmp" />
+    <Content Include="Windows Forms\Safe Controls\SafeListBox.bmp" />
+    <Content Include="Windows Forms\Safe Controls\SafeProgressBar.bmp" />
+    <Content Include="Windows Forms\Safe Controls\SafeStatusBar.bmp" />
+    <Content Include="Windows Forms\Safe Controls\SafeTextbox.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
